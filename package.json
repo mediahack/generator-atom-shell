@@ -7,8 +7,8 @@
   "repository": "mediahack/generator-atom-shell",
   "author": {
     "name": "mediahack",
-    "email": "",
-    "url": "https://github.com/mediahack"
+    "email": "code@mediahack.com",
+    "url": "http://mediahack.com"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -21,7 +21,17 @@
   ],
   "keywords": [
     "yeoman-generator",
-    "atom-shell"
+    "atom",
+    "atom-shell",
+    "gulp",
+    "angular",
+    "polymer",
+    "scaffold",
+    "framework",
+    "component",
+    "front-end",
+    "app",
+    "desktop"
   ],
   "dependencies": {
     "yeoman-generator": ">=0.18.0",
