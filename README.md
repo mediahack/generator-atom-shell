@@ -7,6 +7,12 @@
 
 This generator is for creating desktop applications using [Github's Atom-Shell](https://github.com/atom/atom-shell).
 
+### Binary Atom-Shell
+
+This generator downloads a binary release build of Atom-Shell. If you need a newer or older version you can find a list of [release binaries here](https://github.com/atom/atom-shell/releases). Edit the gulpfile.js and the task for 'atom-download'. Specify your binary version you want in the version property.
+
+Atom-Shell can be customized and has a lot of things you can do with it. However, if you want to do anything fancy like chromeless windows or work with specific you may need to download the source and build your own Atom-Shell project. Here's a link to the [Atom-Shell](https://github.com/atom/atom-shell/tree/master/docs/api) API docs so you can see what can be done with your own compiled version of Atom-Shell.
+
 ## Getting Started
 
 ### What is Yeoman?
