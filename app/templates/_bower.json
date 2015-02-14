@@ -1,0 +1,16 @@
+{
+	"name": "<%= appname %>",
+	"version": "<%= version %>",
+	"moduleType": [
+		"globals"
+	],
+	"private": true,
+	"dependencies": {},
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
+}

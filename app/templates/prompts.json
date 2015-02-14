@@ -1,0 +1,43 @@
+[{
+	"name": "appName",
+	"message": "What is your app name ?"
+}, {
+	"name": "appVersion",
+	"message": "What is your app version ?",
+	"defaults": "0.0.0"
+}, {
+	"type": "checkbox",
+	"name": "appFrameworkOption",
+	"message": "Please select your framework(s):",
+	"choices": [
+		"Angular",
+		"Polymer",
+		"None"
+	],
+	"defaults": "None"
+}, {
+	"type": "list",
+	"name": "frontEndFrameworkOption",
+	"message": "Would you like to use a front-end framework?",
+	"choices": [
+		"Bootstrap",
+		"Foundation",
+		"uikit",
+		"Semantic UI",
+		"Pure",
+		"None"
+	],
+	"defaults": "None"
+}, {
+	"type": "checkbox",
+	"name": "testingFrameworkOption",
+	"message": "Choose your testing frameworks?",
+	"choices": [
+		"Jasmine",
+		"Mocha",
+		"Karma",
+		"PhantomJS",
+		"None"
+	],
+	"defaults": "None"
+}]
