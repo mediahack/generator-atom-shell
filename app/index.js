@@ -44,7 +44,7 @@ var AtomShellGenerator = yeoman.generators.Base.extend({
 			this.fs.copyTpl(
 				this.templatePath('_package.json'),
 				this.destinationPath('package.json'), {
-					appname: this.appName.replace(" ", "-").toLowerCase(),
+					appname: this.appName.replace(/\s/g, "-").toLowerCase(),
 					version: this.appVersion
 				}
 			);
