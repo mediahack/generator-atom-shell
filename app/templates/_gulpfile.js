@@ -4,6 +4,7 @@ var wiredep = require('wiredep').stream;
 var sass = require('gulp-sass');
 var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 var atomdownload = require('gulp-download-atom-shell');
 
 gulp.task('atom-download', function(cb) {
@@ -29,25 +30,37 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scripts', function() {
   return gulp.src('./src/js/**/*.js')
-    .pipe(gulp.dest('./build/js'));
+    .pipe(gulp.dest('./build/js'))
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('sass', function() {
   return gulp.src('./src/scss/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('./build/css'));
+    .pipe(gulp.dest('./build/css'))
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('lint', function() {
   return gulp.src('./src/js/**/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('html', function() {
   return gulp.src('./src/**/*.html')
     .pipe(wiredep())
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./build'))
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('watch', function() {
