@@ -8,6 +8,7 @@
 		"gulp-sass": "~1.3.x",
 		"gulp-jshint": "~1.9.x",
 		"require-dir": "~0.1.x",
+		"browser-sync": "~2.0.x",
 		"wiredep": "~2.2.x"
 	},
 	"testing": {
