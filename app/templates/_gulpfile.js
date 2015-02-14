@@ -3,19 +3,28 @@ var shell = require('gulp-shell');
 var wiredep = require('wiredep').stream;
 var sass = require('gulp-sass');
 var jshint = require('gulp-jshint');
-var downloadatomshell = require('gulp-download-atom-shell');
+var browserSync = require('browser-sync');
+var atomdownload = require('gulp-download-atom-shell');
 
-gulp.task('downloadatomshell', function(cb) {
-  downloadatomshell({
+gulp.task('atom-download', function(cb) {
+  atomdownload({
     version: '0.21.1',
-    outputDir: 'binaries'
+    outputDir: 'binaries',
+    downloadDir: 'downloads'
   }, cb);
 });
 
-gulp.task('wiredep', function() {
-  return gulp.src('./src/index.html')
-    .pipe(wiredep())
-    .pipe(gulp.dest('./src'));
+gulp.task('atom-prep', function() {
+  return gulp.src(['./src/main.js', './src/package.json'])
+    .pipe(gulp.dest('./build'));
+});
+
+gulp.task('browser-sync', function() {
+  browserSync({
+    server: {
+      baseDir: "./build"
+    }
+  });
 });
 
 gulp.task('scripts', function() {
@@ -42,14 +51,16 @@ gulp.task('html', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/js/**/*.js', ['lint', 'scripts']);
-  gulp.watch('src/scss/*.scss', ['sass']);
+  gulp.watch('./src/**/*.html', ['html']);
+  gulp.watch('./src/js/**/*.js', ['lint', 'scripts']);
+  gulp.watch('./src/scss/*.scss', ['sass']);
 });
 
 gulp.task('launch', shell.task([
-  'binaries/Atom.app/Contents/MacOS/Atom src'
+  'binaries/Atom.app/Contents/MacOS/Atom build --proxy-server=127.0.0.1:3000'
 ]));
 
-gulp.task('default', ['lint', 'sass', 'scripts', 'html', 'watch',
+gulp.task('default', ['lint', 'sass', 'scripts', 'html', 'atom-prep', 'watch',
+  'browser-sync',
   'launch'
 ]);
