@@ -11,7 +11,7 @@ describe('atom-shell:app', function() {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({
-        'skip-install': false
+        'skip-install': true
       })
       .withPrompt({
         appName: "test",
