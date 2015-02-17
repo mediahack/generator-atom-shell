@@ -1,8 +1,8 @@
 {
-  "name": "<%= appname %>",
-  "version": "<%= version %>",
-  "devDependencies": {},
-  "scripts": {
-    "postinstall": "bower install && node node_modules/gulp/bin/gulp.js atom-download && node node_modules/gulp/bin/gulp.js default"
-  }
+	"name": "<%= appname %>",
+	"version": "<%= version %>",
+	"devDependencies": {},
+	"scripts": {
+		"postinstall": "bower install"
+	}
 }
