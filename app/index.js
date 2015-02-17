@@ -28,7 +28,8 @@ var AtomShellGenerator = yeoman.generators.Base.extend({
       this.appVersion = props.appVersion;
       this.runnerOption = props.runnerOption;
       this.appFrameworkOption = props.appFrameworkOption;
-      this.frontEndFrameworkOption = props.frontEndFrameworkOption;
+      this.frontEndFrameworkOption = props.frontEndFrameworkOption.replace(
+        ' ', '-').toLowerCase();
       this.testingFrameworkOption = props.testingFrameworkOption;
       done();
     }.bind(this));
@@ -104,8 +105,7 @@ var AtomShellGenerator = yeoman.generators.Base.extend({
         bower.dependencies[x] = framework[x];
       }
 
-      if (this.frontEndFrameworkOption !== 'None') {
-        this.frontEndFrameworkOption.replace(' ', '-').toLowerCase();
+      if (this.frontEndFrameworkOption !== 'none') {
         bower.dependencies[this.frontEndFrameworkOption] = this.packageVersions
           .frontend[
             this.frontEndFrameworkOption];
